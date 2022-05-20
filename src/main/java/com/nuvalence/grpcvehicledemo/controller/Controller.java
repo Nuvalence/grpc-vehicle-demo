@@ -19,7 +19,6 @@ public class Controller {
 
     @GetMapping(value = "/allMakes")
     public Mono<List<String>> getAllMakes() {
-        System.out.println("client3");
         return vehicleClient.allMakes();
     }
 

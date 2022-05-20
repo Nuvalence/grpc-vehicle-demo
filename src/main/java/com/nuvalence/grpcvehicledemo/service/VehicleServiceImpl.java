@@ -2,21 +2,15 @@ package com.nuvalence.grpcvehicledemo.service;
 
 import com.proto.ReactorVehicleServiceGrpc;
 import com.proto.Vehicle;
-import com.proto.VehicleServiceGrpc;
-import io.grpc.stub.StreamObserver;
-import jdk.swing.interop.SwingInterOpUtils;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.json.JSONArray;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Locale;
 
 import org.json.JSONObject;
-import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -29,7 +23,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
     public Mono<Vehicle.AllMakesResponse> allMakes(Mono<Vehicle.AllMakesRequest> request) {
 
 
-        System.out.println("client4");
         JSONObject jsonObject;
         ArrayList<String> models = new ArrayList<>();
 
@@ -38,7 +31,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                         ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
                 .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
                 .build();
-
 
         var externalResponse = webClient
                 .get()
@@ -68,10 +60,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                 .build();
 
         return Mono.just(response);
-
-//        responseObserver.onNext(response);
-//        responseObserver.onCompleted();
-//        return super.allMakes(request);
     }
 
     @Override
@@ -106,9 +94,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                         if (resultsKey.equals("Make_Name")) {
                             if (res.size() == BATCH_SIZE) {
                                 responseStream.add(Vehicle.AllMakesStreamResponse.newBuilder().addAllMake(res).build());
-//                                responseObserver.onNext(Vehicle.AllMakesStreamResponse.newBuilder()
-//                                        .addAllMake(res)
-//                                        .build());
                                 res.clear();
                             }
                             else if (res.size() < BATCH_SIZE) {
@@ -121,17 +106,13 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
             }
         });
 
-        // to send a response stream for the last batch which is a lesser length than the batch size
         if (res.size() < BATCH_SIZE) {
             responseStream.add(Vehicle.AllMakesStreamResponse.newBuilder().addAllMake(res).build());
-//            responseObserver.onNext(Vehicle.AllMakesStreamResponse.newBuilder().addAllMake(res).build());
         }
 
 
         return Flux.fromIterable(responseStream);
 
-
-//        responseObserver.onCompleted();
     }
 
 
