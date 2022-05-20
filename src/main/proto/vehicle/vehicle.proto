@@ -1,0 +1,41 @@
+syntax = 'proto3';
+package vehicle;
+option java_package = "com.proto";
+
+message AllMakesRequest {}
+message AllMakesResponse {
+  repeated string make = 1;
+}
+message AllMakesStreamRequest {
+  int32 batchSize = 1;
+}
+message AllMakesStreamResponse {
+  repeated string make = 1;
+}
+
+message ModelsForMakesRequest {
+  string make = 1;
+}
+message ModelsForMakesResponse {
+  repeated ModelsForMake modelsForMake = 1;
+}
+message ModelsForMake{
+  repeated string models = 1 ;
+}
+
+message GetModelByMakeAndYearRequest {
+  string make = 1;
+}
+message GetModelByMakeAndYearResponse {
+  repeated string models = 1;
+}
+
+
+service VehicleService {
+  rpc AllMakes (AllMakesRequest) returns (AllMakesResponse) {};
+  rpc AllMakesStream (AllMakesStreamRequest) returns (stream AllMakesStreamResponse) {};
+
+  rpc ModelsForMakes (stream ModelsForMakesRequest) returns (ModelsForMakesResponse) {};
+
+  rpc GetModelByMakeAndYear (stream GetModelByMakeAndYearRequest) returns (stream GetModelByMakeAndYearResponse) {};
+}
