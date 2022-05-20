@@ -15,6 +15,11 @@ plugins {
 	id 'idea'
 }
 
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'io.spring.dependency-management'
+
 group = 'com.nuvalence'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -24,6 +29,8 @@ repositories {
 }
 
 dependencies {
+	runtimeOnly 'io.grpc:grpc-netty-shaded:1.45.1'
+
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
 	compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
@@ -67,8 +74,4 @@ protobuf {
 		}
 	}
 	generatedFilesBaseDir = "$projectDir/gen"
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
 }
