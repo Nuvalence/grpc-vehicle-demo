@@ -57,6 +57,7 @@ Ran a gRPC server locally and used the new beta feature on Postman to invoke gRP
   - created a test cluster on GCP
   - used CloudShell to create a deployment, and a service to externally expose the API created
   - the deployment can be reached via external IP for the deployment via Postman
+  - `deployment.yaml` in the directory can be applied via kubectl CLI command to create deployment/service
 
 
 
