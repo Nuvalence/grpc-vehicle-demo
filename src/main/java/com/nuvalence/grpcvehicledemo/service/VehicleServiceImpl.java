@@ -2,13 +2,16 @@ package com.nuvalence.grpcvehicledemo.service;
 
 import com.proto.ReactorVehicleServiceGrpc;
 import com.proto.Vehicle;
+import io.grpc.CallOptions;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.bson.Document;
 import org.json.JSONArray;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONObject;
 import reactor.core.publisher.Flux;
@@ -115,11 +118,8 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
     }
 
-
     @Override
     public Mono<Vehicle.ModelsForMakesResponse> modelsForMakes(Flux<Vehicle.ModelsForMakesRequest> request) {
-
-        ArrayList<Vehicle.ModelsForMake> res = new ArrayList<>();
 
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
@@ -127,158 +127,32 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                 .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
                 .build();
 
-//        System.out.println("CARS/");
-//        var cars = request.collectList();
-//        System.out.println(cars);
-//        cars.block().forEach(car -> {
-//            ArrayList<String> models = new ArrayList<>();
-//            String make = car.getMake();
-//            System.out.println(make);
-//            var externalResponse = webClient
-//                    .get()
-//                    .uri("/GetModelsForMake/"+make+"?format=json")
-//                    .accept(MediaType.APPLICATION_JSON)
-//                    .retrieve()
-//                    .bodyToMono(String.class).log()
-//                    .block();
-//            JSONObject jsonObject = new JSONObject(externalResponse);
-//            extractAndAddModels(jsonObject, models, "Model_Name", make);
-//
-//            Vehicle.ModelsForMake modelsForMake = Vehicle.ModelsForMake.newBuilder()
-//                    .addAllModels(models)
-//                    .build();
-//
-//            System.out.println("creating Models for make2");
-//
-//            res.add(modelsForMake);
-//
-//            System.out.println("res");
-//            System.out.println(res);
-//        });
-//        Vehicle.ModelsForMakesResponse response = Vehicle.ModelsForMakesResponse.newBuilder()
-//                .addAllModelsForMake(res).build();
-//        System.out.println(res);
-//        System.out.println(response);
-//        System.out.println(response.getModelsForMakeList());
-//
-//        return Mono.just(response);
+         return request
+                .map(item -> {
+                    List<String> models = new ArrayList<>();
+                    String make = item.getMake();
+                    JSONObject modelJson = new JSONObject(webClient
+                            .get()
+                            .uri("/GetModelsForMake/"+make+"?format=json")
+                            .accept(MediaType.APPLICATION_JSON)
+                            .retrieve()
+                            .bodyToMono(String.class).log()
+                            .block());
 
-
-
-        System.out.println("SERVICE");
-        var x=request.doOnNext(modelsForMakesRequest -> {
-                        ArrayList<String> models = new ArrayList<>();
-                        String make = modelsForMakesRequest.getMake();
-                        System.out.println("%%%");
-                        System.out.println(make);
-                        var externalResponse = webClient
-                                .get()
-                                .uri("/GetModelsForMake/"+make+"?format=json")
-                                .accept(MediaType.APPLICATION_JSON)
-                                .retrieve()
-                                .bodyToMono(String.class).log()
-                                .block();
-                        JSONObject jsonObject = new JSONObject(externalResponse);
-
-//                            extractAndAddModels(jsonObject, models, "Model_Name", make);
-                                jsonObject.keys().forEachRemaining(key -> {
-                                    if (key.equals("Results")) {
-                                        Object results = jsonObject.get(key);
-                                        ((JSONArray) results).iterator().forEachRemaining(element -> {
-                                            ((JSONObject) element).keys().forEachRemaining(resultsKey -> {
-                                                if (resultsKey.equals("Model_Name")) {
-                                                    if (make != null) {
-                                                        models.add(make.toUpperCase() +
-                                                                " " + ((JSONObject) element).get(resultsKey));
-                                                    } else {
-                                                        models.add((String)((JSONObject) element).get(resultsKey));
-                                                    }
-                                                }
-                                            });
-                                        });
-                                    }
-                                });
-
-
-                        Vehicle.ModelsForMake modelsForMake = Vehicle.ModelsForMake.newBuilder()
-                                .addAllModels(models)
-                                .build();
-
-                        System.out.println("creating Models for make");
-
-                        res.add(modelsForMake);
-
-                        System.out.println("res");
-                        System.out.println(res);
-                    })
-                .doOnTerminate(()->{
-                    System.out.println("TERMINATDO");
+                    modelJson.keys().forEachRemaining(key -> {
+                        if (key.equals("Results")) {
+                            Object results = modelJson.get(key);
+                            ((JSONArray) results).iterator().forEachRemaining(element -> ((JSONObject) element).keys().forEachRemaining(resultsKey -> {
+                                if (resultsKey.equals("Model_Name")) {
+                                    models.add((String)((JSONObject) element).get(resultsKey));
+                                }
+                            }));
+                        }
+                    });
+                    return Vehicle.ModelsForMake.newBuilder().addAllModels(models).build();
                 })
-                    .doOnComplete(()->{
-                        System.out.println("Complete!");
-
-                        Vehicle.ModelsForMakesResponse response = Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(res).build();
-                        System.out.println(res);
-                        System.out.println(response);
-                        System.out.println(response.getModelsForMakeList());
-                    })
-                .subscribe(s -> {
-                    System.out.println("SUBSCRITTION");
-                    System.out.println(s.getMake());
-                });
-//                .map( s->{
-//                        System.out.println("SS");
-//                        System.out.println(s);
-//                        return (Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(res).build());
-//                    }).next();
-
-
-            System.out.println("======@@@====");
-            System.out.println(res);
-//            System.out.println(response);
-
-            return Mono.just((Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(res).build()));
-
-//return x;
-
-//        return Mono.just(response);
-//        StreamObserver<Vehicle.ModelsForMakesRequest> requestStreamObserver = new StreamObserver<Vehicle.ModelsForMakesRequest>() {
-//            @Override
-//            public void onNext(Vehicle.ModelsForMakesRequest value) {
-//                ArrayList<String> models = new ArrayList<>();
-//                String make = value.getMake();
-//                var externalResponse = webClient
-//                        .get()
-//                        .uri("/GetModelsForMake/"+make+"?format=json")
-//                        .accept(MediaType.APPLICATION_JSON)
-//                        .retrieve()
-//                        .bodyToMono(String.class).log()
-//                        .block();
-//                JSONObject jsonObject = new JSONObject(externalResponse);
-//
-//                extractAndAddModels(jsonObject, models, "Model_Name", make);
-//
-//
-//                Vehicle.ModelsForMake modelsForMake = Vehicle.ModelsForMake.newBuilder()
-//                        .addAllModels(models)
-//                        .build();
-//
-//                res.add(modelsForMake);
-//            }
-//
-//            @Override
-//            public void onError(Throwable t) {
-//
-//            }
-
-//            @Override
-//            public void onCompleted() {
-//                System.out.println("Stream finished");
-//                responseObserver.onNext(response);
-//                responseObserver.onCompleted();
-//            }
-//        };
-
+                 .collectList()
+                 .map(mono-> Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(mono).build());
     }
 
     @Override
@@ -325,8 +199,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                 });
     }
 
-
-
     // json to extract
     // array to add to
     // field to extract by
@@ -348,79 +220,5 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                 });
             }
         });
-
     }
-
-
-//    @Override
-//    public StreamObserver<Vehicle.GetModelByMakeAndYearRequest> getModelByMakeAndYear(StreamObserver<Vehicle.GetModelByMakeAndYearResponse> responseObserver) {
-//        this.webClient = WebClient.builder()
-//                .exchangeStrategies(
-//                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
-//                .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
-//                .build();
-//
-//        return new StreamObserver<>() {
-//            @Override
-//            public void onNext(Vehicle.GetModelByMakeAndYearRequest value) {
-//                ArrayList<String> models = new ArrayList<>();
-//                String make = value.getMake();
-//                int year = value.getYear();
-//
-//                System.out.println("Finding models for: \n"+year+ " " + make.toUpperCase() +"'s");
-//
-//                JSONObject modelsJson = new JSONObject(webClient
-//                        .get()
-//                        .uri("/GetModelsForMakeYear/make/"+make+"/modelyear/"+year+"?format=json")
-//                        .accept(MediaType.APPLICATION_JSON)
-//                        .retrieve()
-//                        .bodyToMono(String.class).log()
-//                        .block());
-//
-//                extractAndAddModels(modelsJson, models, "Model_Name", year+" "+make);
-//                Vehicle.GetModelByMakeAndYearResponse resp = Vehicle.GetModelByMakeAndYearResponse.newBuilder()
-//                        .addAllModels(models)
-//                        .build();
-//                responseObserver.onNext(resp);
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable t) {
-//
-//            }
-//
-//            @Override
-//            public void onCompleted() {
-//                System.out.println("Server side completed!");
-////                Vehicle.GetModelByMakeAndYearResponse resp = Vehicle.GetModelByMakeAndYearResponse.newBuilder()
-////                        .addAllModels(models)
-////                        .build();
-////                responseObserver.onNext(resp);
-//                responseObserver.onCompleted();
-//            }
-//        };
-//
-//
-//
-////        Flux s = new Flux<>() {
-////            @Override
-////            public void subscribe(CoreSubscriber<? super Object> actual) {
-////                System.out.println("Where ma i");
-////                actual.onComplete();
-////            }
-////
-////
-////        };
-////
-////        s.subscribe(z -> {
-////            System.out.println(z);
-////        });
-////
-////        return s;
-////
-////        Vehicle.GetModelByMakeAndYearResponse resp = Vehicle.GetModelByMakeAndYearResponse.newBuilder() .setModels().build();
-////        responseObserver.onNext(resp);
-////        return null;
-//    }
 }
