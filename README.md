@@ -17,6 +17,8 @@ It includes different types of client-server interactions that gRPC has to offer
 - Server Streaming
 - Bi-Directional Streaming
 
+
+
 ### 2.) Exposing gRPC server as REST API
 
 The Controller file will show how the gRPC endpoints are exposed as a REST API along with a VehicleClient implementation that shows what each endpoint will execute.
@@ -52,10 +54,14 @@ GET: /vehicle/model?makes={list of makes}
 
 The JSON responses are parsed using org.json.JSONObject.
 
+
+
 ### 3.) Testing
 
 Testing was done locally by utilizing the ServerBuilder in the default gRPC package.
 Ran a gRPC server locally and used the new beta feature on Postman to invoke gRPC method calls, as it is able to even run streaming endpoints.
+
+
 
 
 ### 4.) Deployment
