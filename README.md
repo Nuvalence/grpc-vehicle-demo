@@ -22,11 +22,20 @@ It includes different types of client-server interactions that gRPC has to offer
 The Controller file will show how the gRPC endpoints are exposed as a REST API along with a VehicleClient implementation that shows what each endpoint will execute.
 Focusing on GET requests to showcase and focus on the streaming aspects of gRPC.
 
-This REST API will leverage an external, free, API from the National Highway Traffic Safety Administration (NHTSA) containing all the data that's returned
-(https://vpic.nhtsa.dot.gov/api).
-  - external API request is handled using WebClient that's in the Spring Reactive library
+This REST API will leverage an external, free, API from the National Highway Traffic Safety Administration (NHTSA), and an online data set containing fuel-consumption reports:
+  - `https://vpic.nhtsa.dot.gov/api` - external API request is handled using WebClient that's in the Spring Reactive library
+  - `https://www.fueleconomy.gov/feg/download.shtml` - data is extracted and read into the repository, containing vehicle description and fuel-consumption data information
 
 ## REST API DESCRIPTION
+
+GET: /vehicle
+  - returns all the data that's been read into the repository (from 2019-2022)
+
+GET: /vehicle/{id}
+  - returns a specific vehicle detail by id
+
+GET: /vehicle/details/{year}
+  - returns vehicle details for a given year but currently only has years 2019-2022 (inclusive)
 
 GET: /vehicle/allMakes
   - a unary endpoint (with no required input) that will return every car make found
