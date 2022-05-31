@@ -6,7 +6,7 @@ The purpose of this API is to utilize the following technologies to create endpo
 It will utilize an external API for data and leverage technlogies like gRPC, WebFlux, Docker, Kubernetes (via GKE), and a new beta gRPC feature on Postman.
 
 
-## Design Description
+# Design Description
 
 ## 1.) Creating gRPC (streaming) endpoints using WebFlux
 
