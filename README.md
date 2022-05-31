@@ -70,10 +70,15 @@ If you want to run on your server, it should be as simple as running a gradle bu
 
 ## gRPC test on Postman
 If you want to test gRPC endpoints specifically via Postman's new beta feature, use `localhost:9090` because that's where the gRPC server will be running.
+
 1.) Create a new gRPC request
+
 2.) Load up the proto file from the project directory under `/src/main/proto/vehicle/` called `vehicle.proto`
+
 3.) Postman will show you the gRPC methods available
+
 4.) Invoke with proper request bodies
+
 
 `AllMakesStream` (server streaming)
   - takes in: 
