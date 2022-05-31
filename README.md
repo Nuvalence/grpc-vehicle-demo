@@ -75,21 +75,21 @@ If you want to test gRPC endpoints specifically via Postman's new beta feature, 
 3.) Postman will show you the gRPC methods available
 4.) Invoke with proper request bodies
 
-#`AllMakesStream` (server streaming)
+`AllMakesStream` (server streaming)
   - takes in: 
     { 
       "batchSize": {integer} 
     }
   - but I recommend batchSize of at least 100 to avoid waiting too long for the stream to finish
   
-#`ModelsForMakes` (client streaming)
+`ModelsForMakes` (client streaming)
   - takes in 
     {
       "make": {desired car make}
     }
   - you can stream multiple requests (i.e. sending "honda", "tesla", "ford", "audi", and then press `End Streaming` to see the model responses for the given makes
 
-#`GetModelByMake` (bi-directional streaming)
+`GetModelByMake` (bi-directional streaming)
   - takes in
     {
       "make": {desired car make}
