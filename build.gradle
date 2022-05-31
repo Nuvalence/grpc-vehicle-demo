@@ -29,32 +29,27 @@ repositories {
 }
 
 dependencies {
-	runtimeOnly 'io.grpc:grpc-netty-shaded:1.45.1'
+	runtimeOnly 'io.grpc:grpc-netty-shaded:1.46.0'
 
-	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
 	compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
-	compileOnly 'org.projectlombok:lombok:1.18.20'
-
-
+	compileOnly 'org.projectlombok:lombok:1.18.24'
 	compileOnly 'com.googlecode.json-simple:json-simple:1.1.1'
+	compileOnly 'io.grpc:grpc-netty-shaded:1.46.0'
 
-	implementation 'org.springframework.boot:spring-boot-starter-webflux:2.6.4'
-	compileOnly 'io.grpc:grpc-netty-shaded:1.45.1'
-	implementation 'io.grpc:grpc-protobuf:1.45.1'
-	implementation 'io.grpc:grpc-stub:1.45.1'
+	implementation 'io.grpc:grpc-protobuf:1.46.0'
+	implementation 'io.grpc:grpc-stub:1.46.0'
 	implementation "com.salesforce.servicelibs:reactor-grpc-stub:1.2.3"
 	implementation 'net.devh:grpc-spring-boot-starter:2.13.1.RELEASE'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.4'
-	implementation 'org.json:json:20220320'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'io.micrometer:micrometer-registry-prometheus:latest.release'
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.0.1'
-
-	implementation('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
-	implementation('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
-
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.7'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux:2.6.7'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+	implementation 'org.json:json:20220320'
+	implementation 'io.micrometer:micrometer-registry-prometheus:1.9.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+	implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'

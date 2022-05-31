@@ -23,10 +23,10 @@ message ModelsForMake{
   repeated string models = 1 ;
 }
 
-message GetModelByMakeAndYearRequest {
+message GetModelByMakeRequest {
   string make = 1;
 }
-message GetModelByMakeAndYearResponse {
+message GetModelByMakeResponse {
   repeated string models = 1;
 }
 
@@ -37,5 +37,5 @@ service VehicleService {
 
   rpc ModelsForMakes (stream ModelsForMakesRequest) returns (ModelsForMakesResponse) {};
 
-  rpc GetModelByMakeAndYear (stream GetModelByMakeAndYearRequest) returns (stream GetModelByMakeAndYearResponse) {};
+  rpc GetModelByMake (stream GetModelByMakeRequest) returns (stream GetModelByMakeResponse) {};
 }

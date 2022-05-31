@@ -4195,8 +4195,8 @@ public final class Vehicle {
 
   }
 
-  public interface GetModelByMakeAndYearRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:vehicle.GetModelByMakeAndYearRequest)
+  public interface GetModelByMakeRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:vehicle.GetModelByMakeRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4212,18 +4212,18 @@ public final class Vehicle {
         getMakeBytes();
   }
   /**
-   * Protobuf type {@code vehicle.GetModelByMakeAndYearRequest}
+   * Protobuf type {@code vehicle.GetModelByMakeRequest}
    */
-  public static final class GetModelByMakeAndYearRequest extends
+  public static final class GetModelByMakeRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:vehicle.GetModelByMakeAndYearRequest)
-      GetModelByMakeAndYearRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:vehicle.GetModelByMakeRequest)
+      GetModelByMakeRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetModelByMakeAndYearRequest.newBuilder() to construct.
-    private GetModelByMakeAndYearRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetModelByMakeRequest.newBuilder() to construct.
+    private GetModelByMakeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetModelByMakeAndYearRequest() {
+    private GetModelByMakeRequest() {
       make_ = "";
     }
 
@@ -4231,7 +4231,7 @@ public final class Vehicle {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new GetModelByMakeAndYearRequest();
+      return new GetModelByMakeRequest();
     }
 
     @java.lang.Override
@@ -4239,7 +4239,7 @@ public final class Vehicle {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetModelByMakeAndYearRequest(
+    private GetModelByMakeRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4284,15 +4284,15 @@ public final class Vehicle {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor;
+      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearRequest_fieldAccessorTable
+      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.proto.Vehicle.GetModelByMakeAndYearRequest.class, com.proto.Vehicle.GetModelByMakeAndYearRequest.Builder.class);
+              com.proto.Vehicle.GetModelByMakeRequest.class, com.proto.Vehicle.GetModelByMakeRequest.Builder.class);
     }
 
     public static final int MAKE_FIELD_NUMBER = 1;
@@ -4372,10 +4372,10 @@ public final class Vehicle {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.proto.Vehicle.GetModelByMakeAndYearRequest)) {
+      if (!(obj instanceof com.proto.Vehicle.GetModelByMakeRequest)) {
         return super.equals(obj);
       }
-      com.proto.Vehicle.GetModelByMakeAndYearRequest other = (com.proto.Vehicle.GetModelByMakeAndYearRequest) obj;
+      com.proto.Vehicle.GetModelByMakeRequest other = (com.proto.Vehicle.GetModelByMakeRequest) obj;
 
       if (!getMake()
           .equals(other.getMake())) return false;
@@ -4397,69 +4397,69 @@ public final class Vehicle {
       return hash;
     }
 
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(byte[] data)
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(java.io.InputStream input)
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.proto.Vehicle.GetModelByMakeRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseDelimitedFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4472,7 +4472,7 @@ public final class Vehicle {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.proto.Vehicle.GetModelByMakeAndYearRequest prototype) {
+    public static Builder newBuilder(com.proto.Vehicle.GetModelByMakeRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4488,26 +4488,26 @@ public final class Vehicle {
       return builder;
     }
     /**
-     * Protobuf type {@code vehicle.GetModelByMakeAndYearRequest}
+     * Protobuf type {@code vehicle.GetModelByMakeRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:vehicle.GetModelByMakeAndYearRequest)
-        com.proto.Vehicle.GetModelByMakeAndYearRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:vehicle.GetModelByMakeRequest)
+        com.proto.Vehicle.GetModelByMakeRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor;
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearRequest_fieldAccessorTable
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.proto.Vehicle.GetModelByMakeAndYearRequest.class, com.proto.Vehicle.GetModelByMakeAndYearRequest.Builder.class);
+                com.proto.Vehicle.GetModelByMakeRequest.class, com.proto.Vehicle.GetModelByMakeRequest.Builder.class);
       }
 
-      // Construct using com.proto.Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+      // Construct using com.proto.Vehicle.GetModelByMakeRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4533,17 +4533,17 @@ public final class Vehicle {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor;
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearRequest getDefaultInstanceForType() {
-        return com.proto.Vehicle.GetModelByMakeAndYearRequest.getDefaultInstance();
+      public com.proto.Vehicle.GetModelByMakeRequest getDefaultInstanceForType() {
+        return com.proto.Vehicle.GetModelByMakeRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearRequest build() {
-        com.proto.Vehicle.GetModelByMakeAndYearRequest result = buildPartial();
+      public com.proto.Vehicle.GetModelByMakeRequest build() {
+        com.proto.Vehicle.GetModelByMakeRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4551,8 +4551,8 @@ public final class Vehicle {
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearRequest buildPartial() {
-        com.proto.Vehicle.GetModelByMakeAndYearRequest result = new com.proto.Vehicle.GetModelByMakeAndYearRequest(this);
+      public com.proto.Vehicle.GetModelByMakeRequest buildPartial() {
+        com.proto.Vehicle.GetModelByMakeRequest result = new com.proto.Vehicle.GetModelByMakeRequest(this);
         result.make_ = make_;
         onBuilt();
         return result;
@@ -4592,16 +4592,16 @@ public final class Vehicle {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.proto.Vehicle.GetModelByMakeAndYearRequest) {
-          return mergeFrom((com.proto.Vehicle.GetModelByMakeAndYearRequest)other);
+        if (other instanceof com.proto.Vehicle.GetModelByMakeRequest) {
+          return mergeFrom((com.proto.Vehicle.GetModelByMakeRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.proto.Vehicle.GetModelByMakeAndYearRequest other) {
-        if (other == com.proto.Vehicle.GetModelByMakeAndYearRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.proto.Vehicle.GetModelByMakeRequest other) {
+        if (other == com.proto.Vehicle.GetModelByMakeRequest.getDefaultInstance()) return this;
         if (!other.getMake().isEmpty()) {
           make_ = other.make_;
           onChanged();
@@ -4621,11 +4621,11 @@ public final class Vehicle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.proto.Vehicle.GetModelByMakeAndYearRequest parsedMessage = null;
+        com.proto.Vehicle.GetModelByMakeRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.proto.Vehicle.GetModelByMakeAndYearRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.proto.Vehicle.GetModelByMakeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4723,48 +4723,48 @@ public final class Vehicle {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:vehicle.GetModelByMakeAndYearRequest)
+      // @@protoc_insertion_point(builder_scope:vehicle.GetModelByMakeRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:vehicle.GetModelByMakeAndYearRequest)
-    private static final com.proto.Vehicle.GetModelByMakeAndYearRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:vehicle.GetModelByMakeRequest)
+    private static final com.proto.Vehicle.GetModelByMakeRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.proto.Vehicle.GetModelByMakeAndYearRequest();
+      DEFAULT_INSTANCE = new com.proto.Vehicle.GetModelByMakeRequest();
     }
 
-    public static com.proto.Vehicle.GetModelByMakeAndYearRequest getDefaultInstance() {
+    public static com.proto.Vehicle.GetModelByMakeRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<GetModelByMakeAndYearRequest>
-        PARSER = new com.google.protobuf.AbstractParser<GetModelByMakeAndYearRequest>() {
+    private static final com.google.protobuf.Parser<GetModelByMakeRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetModelByMakeRequest>() {
       @java.lang.Override
-      public GetModelByMakeAndYearRequest parsePartialFrom(
+      public GetModelByMakeRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetModelByMakeAndYearRequest(input, extensionRegistry);
+        return new GetModelByMakeRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetModelByMakeAndYearRequest> parser() {
+    public static com.google.protobuf.Parser<GetModelByMakeRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetModelByMakeAndYearRequest> getParserForType() {
+    public com.google.protobuf.Parser<GetModelByMakeRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.proto.Vehicle.GetModelByMakeAndYearRequest getDefaultInstanceForType() {
+    public com.proto.Vehicle.GetModelByMakeRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface GetModelByMakeAndYearResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:vehicle.GetModelByMakeAndYearResponse)
+  public interface GetModelByMakeResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:vehicle.GetModelByMakeResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4793,18 +4793,18 @@ public final class Vehicle {
         getModelsBytes(int index);
   }
   /**
-   * Protobuf type {@code vehicle.GetModelByMakeAndYearResponse}
+   * Protobuf type {@code vehicle.GetModelByMakeResponse}
    */
-  public static final class GetModelByMakeAndYearResponse extends
+  public static final class GetModelByMakeResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:vehicle.GetModelByMakeAndYearResponse)
-      GetModelByMakeAndYearResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:vehicle.GetModelByMakeResponse)
+      GetModelByMakeResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetModelByMakeAndYearResponse.newBuilder() to construct.
-    private GetModelByMakeAndYearResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetModelByMakeResponse.newBuilder() to construct.
+    private GetModelByMakeResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetModelByMakeAndYearResponse() {
+    private GetModelByMakeResponse() {
       models_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -4812,7 +4812,7 @@ public final class Vehicle {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new GetModelByMakeAndYearResponse();
+      return new GetModelByMakeResponse();
     }
 
     @java.lang.Override
@@ -4820,7 +4820,7 @@ public final class Vehicle {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetModelByMakeAndYearResponse(
+    private GetModelByMakeResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4872,15 +4872,15 @@ public final class Vehicle {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor;
+      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearResponse_fieldAccessorTable
+      return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.proto.Vehicle.GetModelByMakeAndYearResponse.class, com.proto.Vehicle.GetModelByMakeAndYearResponse.Builder.class);
+              com.proto.Vehicle.GetModelByMakeResponse.class, com.proto.Vehicle.GetModelByMakeResponse.Builder.class);
     }
 
     public static final int MODELS_FIELD_NUMBER = 1;
@@ -4962,10 +4962,10 @@ public final class Vehicle {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.proto.Vehicle.GetModelByMakeAndYearResponse)) {
+      if (!(obj instanceof com.proto.Vehicle.GetModelByMakeResponse)) {
         return super.equals(obj);
       }
-      com.proto.Vehicle.GetModelByMakeAndYearResponse other = (com.proto.Vehicle.GetModelByMakeAndYearResponse) obj;
+      com.proto.Vehicle.GetModelByMakeResponse other = (com.proto.Vehicle.GetModelByMakeResponse) obj;
 
       if (!getModelsList()
           .equals(other.getModelsList())) return false;
@@ -4989,69 +4989,69 @@ public final class Vehicle {
       return hash;
     }
 
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(byte[] data)
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(java.io.InputStream input)
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.proto.Vehicle.GetModelByMakeResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseDelimitedFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse parseFrom(
+    public static com.proto.Vehicle.GetModelByMakeResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5064,7 +5064,7 @@ public final class Vehicle {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.proto.Vehicle.GetModelByMakeAndYearResponse prototype) {
+    public static Builder newBuilder(com.proto.Vehicle.GetModelByMakeResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5080,26 +5080,26 @@ public final class Vehicle {
       return builder;
     }
     /**
-     * Protobuf type {@code vehicle.GetModelByMakeAndYearResponse}
+     * Protobuf type {@code vehicle.GetModelByMakeResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:vehicle.GetModelByMakeAndYearResponse)
-        com.proto.Vehicle.GetModelByMakeAndYearResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:vehicle.GetModelByMakeResponse)
+        com.proto.Vehicle.GetModelByMakeResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor;
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearResponse_fieldAccessorTable
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.proto.Vehicle.GetModelByMakeAndYearResponse.class, com.proto.Vehicle.GetModelByMakeAndYearResponse.Builder.class);
+                com.proto.Vehicle.GetModelByMakeResponse.class, com.proto.Vehicle.GetModelByMakeResponse.Builder.class);
       }
 
-      // Construct using com.proto.Vehicle.GetModelByMakeAndYearResponse.newBuilder()
+      // Construct using com.proto.Vehicle.GetModelByMakeResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5125,17 +5125,17 @@ public final class Vehicle {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor;
+        return com.proto.Vehicle.internal_static_vehicle_GetModelByMakeResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearResponse getDefaultInstanceForType() {
-        return com.proto.Vehicle.GetModelByMakeAndYearResponse.getDefaultInstance();
+      public com.proto.Vehicle.GetModelByMakeResponse getDefaultInstanceForType() {
+        return com.proto.Vehicle.GetModelByMakeResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearResponse build() {
-        com.proto.Vehicle.GetModelByMakeAndYearResponse result = buildPartial();
+      public com.proto.Vehicle.GetModelByMakeResponse build() {
+        com.proto.Vehicle.GetModelByMakeResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5143,8 +5143,8 @@ public final class Vehicle {
       }
 
       @java.lang.Override
-      public com.proto.Vehicle.GetModelByMakeAndYearResponse buildPartial() {
-        com.proto.Vehicle.GetModelByMakeAndYearResponse result = new com.proto.Vehicle.GetModelByMakeAndYearResponse(this);
+      public com.proto.Vehicle.GetModelByMakeResponse buildPartial() {
+        com.proto.Vehicle.GetModelByMakeResponse result = new com.proto.Vehicle.GetModelByMakeResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           models_ = models_.getUnmodifiableView();
@@ -5189,16 +5189,16 @@ public final class Vehicle {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.proto.Vehicle.GetModelByMakeAndYearResponse) {
-          return mergeFrom((com.proto.Vehicle.GetModelByMakeAndYearResponse)other);
+        if (other instanceof com.proto.Vehicle.GetModelByMakeResponse) {
+          return mergeFrom((com.proto.Vehicle.GetModelByMakeResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.proto.Vehicle.GetModelByMakeAndYearResponse other) {
-        if (other == com.proto.Vehicle.GetModelByMakeAndYearResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.proto.Vehicle.GetModelByMakeResponse other) {
+        if (other == com.proto.Vehicle.GetModelByMakeResponse.getDefaultInstance()) return this;
         if (!other.models_.isEmpty()) {
           if (models_.isEmpty()) {
             models_ = other.models_;
@@ -5224,11 +5224,11 @@ public final class Vehicle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.proto.Vehicle.GetModelByMakeAndYearResponse parsedMessage = null;
+        com.proto.Vehicle.GetModelByMakeResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.proto.Vehicle.GetModelByMakeAndYearResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.proto.Vehicle.GetModelByMakeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5361,41 +5361,41 @@ public final class Vehicle {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:vehicle.GetModelByMakeAndYearResponse)
+      // @@protoc_insertion_point(builder_scope:vehicle.GetModelByMakeResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:vehicle.GetModelByMakeAndYearResponse)
-    private static final com.proto.Vehicle.GetModelByMakeAndYearResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:vehicle.GetModelByMakeResponse)
+    private static final com.proto.Vehicle.GetModelByMakeResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.proto.Vehicle.GetModelByMakeAndYearResponse();
+      DEFAULT_INSTANCE = new com.proto.Vehicle.GetModelByMakeResponse();
     }
 
-    public static com.proto.Vehicle.GetModelByMakeAndYearResponse getDefaultInstance() {
+    public static com.proto.Vehicle.GetModelByMakeResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<GetModelByMakeAndYearResponse>
-        PARSER = new com.google.protobuf.AbstractParser<GetModelByMakeAndYearResponse>() {
+    private static final com.google.protobuf.Parser<GetModelByMakeResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetModelByMakeResponse>() {
       @java.lang.Override
-      public GetModelByMakeAndYearResponse parsePartialFrom(
+      public GetModelByMakeResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetModelByMakeAndYearResponse(input, extensionRegistry);
+        return new GetModelByMakeResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetModelByMakeAndYearResponse> parser() {
+    public static com.google.protobuf.Parser<GetModelByMakeResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetModelByMakeAndYearResponse> getParserForType() {
+    public com.google.protobuf.Parser<GetModelByMakeResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.proto.Vehicle.GetModelByMakeAndYearResponse getDefaultInstanceForType() {
+    public com.proto.Vehicle.GetModelByMakeResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5437,15 +5437,15 @@ public final class Vehicle {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_vehicle_ModelsForMake_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor;
+    internal_static_vehicle_GetModelByMakeRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_vehicle_GetModelByMakeAndYearRequest_fieldAccessorTable;
+      internal_static_vehicle_GetModelByMakeRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor;
+    internal_static_vehicle_GetModelByMakeResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_vehicle_GetModelByMakeAndYearResponse_fieldAccessorTable;
+      internal_static_vehicle_GetModelByMakeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5462,19 +5462,19 @@ public final class Vehicle {
       "ake\030\001 \003(\t\"%\n\025ModelsForMakesRequest\022\014\n\004ma" +
       "ke\030\001 \001(\t\"G\n\026ModelsForMakesResponse\022-\n\rmo" +
       "delsForMake\030\001 \003(\0132\026.vehicle.ModelsForMak" +
-      "e\"\037\n\rModelsForMake\022\016\n\006models\030\001 \003(\t\",\n\034Ge" +
-      "tModelByMakeAndYearRequest\022\014\n\004make\030\001 \001(\t" +
-      "\"/\n\035GetModelByMakeAndYearResponse\022\016\n\006mod" +
-      "els\030\001 \003(\t2\357\002\n\016VehicleService\022A\n\010AllMakes" +
-      "\022\030.vehicle.AllMakesRequest\032\031.vehicle.All" +
-      "MakesResponse\"\000\022U\n\016AllMakesStream\022\036.vehi" +
-      "cle.AllMakesStreamRequest\032\037.vehicle.AllM" +
-      "akesStreamResponse\"\0000\001\022U\n\016ModelsForMakes" +
-      "\022\036.vehicle.ModelsForMakesRequest\032\037.vehic" +
-      "le.ModelsForMakesResponse\"\000(\001\022l\n\025GetMode" +
-      "lByMakeAndYear\022%.vehicle.GetModelByMakeA" +
-      "ndYearRequest\032&.vehicle.GetModelByMakeAn" +
-      "dYearResponse\"\000(\0010\001B\013\n\tcom.protob\006proto3"
+      "e\"\037\n\rModelsForMake\022\016\n\006models\030\001 \003(\t\"%\n\025Ge" +
+      "tModelByMakeRequest\022\014\n\004make\030\001 \001(\t\"(\n\026Get" +
+      "ModelByMakeResponse\022\016\n\006models\030\001 \003(\t2\332\002\n\016" +
+      "VehicleService\022A\n\010AllMakes\022\030.vehicle.All" +
+      "MakesRequest\032\031.vehicle.AllMakesResponse\"" +
+      "\000\022U\n\016AllMakesStream\022\036.vehicle.AllMakesSt" +
+      "reamRequest\032\037.vehicle.AllMakesStreamResp" +
+      "onse\"\0000\001\022U\n\016ModelsForMakes\022\036.vehicle.Mod" +
+      "elsForMakesRequest\032\037.vehicle.ModelsForMa" +
+      "kesResponse\"\000(\001\022W\n\016GetModelByMake\022\036.vehi" +
+      "cle.GetModelByMakeRequest\032\037.vehicle.GetM" +
+      "odelByMakeResponse\"\000(\0010\001B\013\n\tcom.protob\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5522,17 +5522,17 @@ public final class Vehicle {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vehicle_ModelsForMake_descriptor,
         new java.lang.String[] { "Models", });
-    internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor =
+    internal_static_vehicle_GetModelByMakeRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_vehicle_GetModelByMakeAndYearRequest_fieldAccessorTable = new
+    internal_static_vehicle_GetModelByMakeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_vehicle_GetModelByMakeAndYearRequest_descriptor,
+        internal_static_vehicle_GetModelByMakeRequest_descriptor,
         new java.lang.String[] { "Make", });
-    internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor =
+    internal_static_vehicle_GetModelByMakeResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_vehicle_GetModelByMakeAndYearResponse_fieldAccessorTable = new
+    internal_static_vehicle_GetModelByMakeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_vehicle_GetModelByMakeAndYearResponse_descriptor,
+        internal_static_vehicle_GetModelByMakeResponse_descriptor,
         new java.lang.String[] { "Models", });
   }
 

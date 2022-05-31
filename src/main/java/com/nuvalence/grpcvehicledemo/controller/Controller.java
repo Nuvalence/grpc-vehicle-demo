@@ -39,8 +39,6 @@ public class Controller {
     @GetMapping(value = "/details/{year}")
     public Flux<com.nuvalence.grpcvehicledemo.model.Vehicle> getVehicleInfoByYear(@PathVariable int year) {
         return repository.findAllByModelYear(year);
-//        return repository.findAll();
-//        return repository.findAll(example);
     }
 
     @GetMapping(value = "/allMakes")
@@ -64,9 +62,5 @@ public class Controller {
     public Flux<List<String>> getModelStream(@RequestParam(value = "makes") List<String> makes) {
         return vehicleClient.getModelByMakeAndYear(makes);
     }
-
-
-
-
 
 }

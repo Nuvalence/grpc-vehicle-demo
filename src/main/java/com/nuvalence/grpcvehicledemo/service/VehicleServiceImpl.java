@@ -2,9 +2,7 @@ package com.nuvalence.grpcvehicledemo.service;
 
 import com.proto.ReactorVehicleServiceGrpc;
 import com.proto.Vehicle;
-import io.grpc.CallOptions;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.bson.Document;
 import org.json.JSONArray;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
@@ -24,7 +22,6 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
     @Override
     public Mono<Vehicle.AllMakesResponse> allMakes(Mono<Vehicle.AllMakesRequest> request) {
-
 
         JSONObject jsonObject;
         ArrayList<String> models = new ArrayList<>();
@@ -110,12 +107,11 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
         });
 
         if (res.size() < BATCH_SIZE) {
+            // making sure the last batch is processed (in case the next batch is smaller than the given batch size)
             responseStream.add(Vehicle.AllMakesStreamResponse.newBuilder().addAllMake(res).build());
         }
 
-
         return Flux.fromIterable(responseStream);
-
     }
 
     @Override
@@ -127,7 +123,7 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                 .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
                 .build();
 
-         return request
+        return request
                 .map(item -> {
                     List<String> models = new ArrayList<>();
                     String make = item.getMake();
@@ -151,12 +147,13 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                     });
                     return Vehicle.ModelsForMake.newBuilder().addAllModels(models).build();
                 })
-                 .collectList()
-                 .map(mono-> Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(mono).build());
+                .collectList()
+                .map(mono-> Vehicle.ModelsForMakesResponse.newBuilder().addAllModelsForMake(mono).build());
     }
 
+
     @Override
-    public Flux<Vehicle.GetModelByMakeAndYearResponse> getModelByMakeAndYear(Flux<Vehicle.GetModelByMakeAndYearRequest> request) {
+    public Flux<Vehicle.GetModelByMakeResponse> getModelByMake(Flux<Vehicle.GetModelByMakeRequest> request) {
 
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
@@ -193,9 +190,7 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
                             });
                         }
                     });
-//                    responseStream.add(Vehicle.GetModelByMakeAndYearResponse.newBuilder().addAllModels(models).build());
-
-                    return Vehicle.GetModelByMakeAndYearResponse.newBuilder().addAllModels(models).build() ;
+                    return Vehicle.GetModelByMakeResponse.newBuilder().addAllModels(models).build() ;
                 });
     }
 

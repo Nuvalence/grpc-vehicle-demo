@@ -108,35 +108,35 @@ public final class VehicleServiceGrpc {
     return getModelsForMakesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeAndYearRequest,
-      com.proto.Vehicle.GetModelByMakeAndYearResponse> getGetModelByMakeAndYearMethod;
+  private static volatile io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeRequest,
+      com.proto.Vehicle.GetModelByMakeResponse> getGetModelByMakeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetModelByMakeAndYear",
-      requestType = com.proto.Vehicle.GetModelByMakeAndYearRequest.class,
-      responseType = com.proto.Vehicle.GetModelByMakeAndYearResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetModelByMake",
+      requestType = com.proto.Vehicle.GetModelByMakeRequest.class,
+      responseType = com.proto.Vehicle.GetModelByMakeResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeAndYearRequest,
-      com.proto.Vehicle.GetModelByMakeAndYearResponse> getGetModelByMakeAndYearMethod() {
-    io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeAndYearRequest, com.proto.Vehicle.GetModelByMakeAndYearResponse> getGetModelByMakeAndYearMethod;
-    if ((getGetModelByMakeAndYearMethod = VehicleServiceGrpc.getGetModelByMakeAndYearMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeRequest,
+      com.proto.Vehicle.GetModelByMakeResponse> getGetModelByMakeMethod() {
+    io.grpc.MethodDescriptor<com.proto.Vehicle.GetModelByMakeRequest, com.proto.Vehicle.GetModelByMakeResponse> getGetModelByMakeMethod;
+    if ((getGetModelByMakeMethod = VehicleServiceGrpc.getGetModelByMakeMethod) == null) {
       synchronized (VehicleServiceGrpc.class) {
-        if ((getGetModelByMakeAndYearMethod = VehicleServiceGrpc.getGetModelByMakeAndYearMethod) == null) {
-          VehicleServiceGrpc.getGetModelByMakeAndYearMethod = getGetModelByMakeAndYearMethod =
-              io.grpc.MethodDescriptor.<com.proto.Vehicle.GetModelByMakeAndYearRequest, com.proto.Vehicle.GetModelByMakeAndYearResponse>newBuilder()
+        if ((getGetModelByMakeMethod = VehicleServiceGrpc.getGetModelByMakeMethod) == null) {
+          VehicleServiceGrpc.getGetModelByMakeMethod = getGetModelByMakeMethod =
+              io.grpc.MethodDescriptor.<com.proto.Vehicle.GetModelByMakeRequest, com.proto.Vehicle.GetModelByMakeResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetModelByMakeAndYear"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetModelByMake"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.Vehicle.GetModelByMakeAndYearRequest.getDefaultInstance()))
+                  com.proto.Vehicle.GetModelByMakeRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.Vehicle.GetModelByMakeAndYearResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new VehicleServiceMethodDescriptorSupplier("GetModelByMakeAndYear"))
+                  com.proto.Vehicle.GetModelByMakeResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new VehicleServiceMethodDescriptorSupplier("GetModelByMake"))
               .build();
         }
       }
     }
-    return getGetModelByMakeAndYearMethod;
+    return getGetModelByMakeMethod;
   }
 
   /**
@@ -210,9 +210,9 @@ public final class VehicleServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeAndYearRequest> getModelByMakeAndYear(
-        io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeAndYearResponse> responseObserver) {
-      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getGetModelByMakeAndYearMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeRequest> getModelByMake(
+        io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getGetModelByMakeMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -239,12 +239,12 @@ public final class VehicleServiceGrpc {
                 com.proto.Vehicle.ModelsForMakesResponse>(
                   this, METHODID_MODELS_FOR_MAKES)))
           .addMethod(
-            getGetModelByMakeAndYearMethod(),
+            getGetModelByMakeMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
-                com.proto.Vehicle.GetModelByMakeAndYearRequest,
-                com.proto.Vehicle.GetModelByMakeAndYearResponse>(
-                  this, METHODID_GET_MODEL_BY_MAKE_AND_YEAR)))
+                com.proto.Vehicle.GetModelByMakeRequest,
+                com.proto.Vehicle.GetModelByMakeResponse>(
+                  this, METHODID_GET_MODEL_BY_MAKE)))
           .build();
     }
   }
@@ -289,10 +289,10 @@ public final class VehicleServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeAndYearRequest> getModelByMakeAndYear(
-        io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeAndYearResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeRequest> getModelByMake(
+        io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
-          getChannel().newCall(getGetModelByMakeAndYearMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getGetModelByMakeMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -352,7 +352,7 @@ public final class VehicleServiceGrpc {
   private static final int METHODID_ALL_MAKES = 0;
   private static final int METHODID_ALL_MAKES_STREAM = 1;
   private static final int METHODID_MODELS_FOR_MAKES = 2;
-  private static final int METHODID_GET_MODEL_BY_MAKE_AND_YEAR = 3;
+  private static final int METHODID_GET_MODEL_BY_MAKE = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -392,9 +392,9 @@ public final class VehicleServiceGrpc {
         case METHODID_MODELS_FOR_MAKES:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.modelsForMakes(
               (io.grpc.stub.StreamObserver<com.proto.Vehicle.ModelsForMakesResponse>) responseObserver);
-        case METHODID_GET_MODEL_BY_MAKE_AND_YEAR:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getModelByMakeAndYear(
-              (io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeAndYearResponse>) responseObserver);
+        case METHODID_GET_MODEL_BY_MAKE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getModelByMake(
+              (io.grpc.stub.StreamObserver<com.proto.Vehicle.GetModelByMakeResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -449,7 +449,7 @@ public final class VehicleServiceGrpc {
               .addMethod(getAllMakesMethod())
               .addMethod(getAllMakesStreamMethod())
               .addMethod(getModelsForMakesMethod())
-              .addMethod(getGetModelByMakeAndYearMethod())
+              .addMethod(getGetModelByMakeMethod())
               .build();
         }
       }

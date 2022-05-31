@@ -23,6 +23,7 @@ public class VehicleClient {
     private ReactorVehicleServiceGrpc.ReactorVehicleServiceStub stub;
 
     public static void main(String[] args) {
+        // uncomment the 3 lines below to test locally via ServerBuilder (make sure VehicleServer is running)
 //        System.out.println("This is the Vehicle Client starting");
 //        VehicleClient main = new VehicleClient();
 //        main.test();
@@ -33,7 +34,6 @@ public class VehicleClient {
         Mono<Vehicle.AllMakesRequest> request = Mono.just(Vehicle.AllMakesRequest.newBuilder().build());
         return stub.allMakes(request).map(Vehicle.AllMakesResponse::getMakeList);
     }
-
 
     public Flux<List<String>> allMakesStream(int batchSize) {
         Mono<Vehicle.AllMakesStreamRequest> request = Mono.just(Vehicle.AllMakesStreamRequest.newBuilder().setBatchSize(batchSize).build());
@@ -55,17 +55,16 @@ public class VehicleClient {
 
     public Flux<List<String>> getModelByMakeAndYear(List<String> makes) {
         // initialize request
-        Flux<Vehicle.GetModelByMakeAndYearRequest> requestStream = Flux.fromStream(
+        Flux<Vehicle.GetModelByMakeRequest> requestStream = Flux.fromStream(
                 makes.stream()
-                        .map(make-> Vehicle.GetModelByMakeAndYearRequest.newBuilder().setMake(make).build())
+                        .map(make-> Vehicle.GetModelByMakeRequest.newBuilder().setMake(make).build())
         );
 
-        return stub.getModelByMakeAndYear(requestStream)
+        return stub.getModelByMake(requestStream)
                 .map(
-                Vehicle.GetModelByMakeAndYearResponse::getModelsList
+                Vehicle.GetModelByMakeResponse::getModelsList
                 );
     }
-
 
     public void test() {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053)
@@ -81,12 +80,9 @@ public class VehicleClient {
         channel.shutdown();
     }
 
-
-
+    // the following functions (commented out in main) are for testing while running a server (via VehicleServer.java) and a client connection locally
     public void allMakes(ManagedChannel channel) {
-
         VehicleServiceGrpc.VehicleServiceBlockingStub stub = VehicleServiceGrpc.newBlockingStub(channel);
-
         Vehicle.AllMakesRequest request = Vehicle.AllMakesRequest.newBuilder()
                 .build();
 
@@ -98,9 +94,7 @@ public class VehicleClient {
         System.out.println(response.getMakeList());
     }
     public void allMakesStream(ManagedChannel channel) {
-
         VehicleServiceGrpc.VehicleServiceBlockingStub stub = VehicleServiceGrpc.newBlockingStub(channel);
-
         Vehicle.AllMakesStreamRequest request = Vehicle.AllMakesStreamRequest.newBuilder()
                 .setBatchSize(1000)
                 .build();
@@ -114,29 +108,21 @@ public class VehicleClient {
         System.out.println("====");
     }
     public void modelsForMakes(ManagedChannel channel) {
-
         CountDownLatch latch = new CountDownLatch(1);
-
         VehicleServiceGrpc.VehicleServiceStub asyncStub = VehicleServiceGrpc.newStub(channel);
-
         StreamObserver<Vehicle.ModelsForMakesRequest> requestStreamObserver = asyncStub.modelsForMakes(new StreamObserver<Vehicle.ModelsForMakesResponse>() {
             @Override
             public void onNext(Vehicle.ModelsForMakesResponse value) {
                 System.out.println("Server response");
                 System.out.println(value.getModelsForMakeList());
             }
-
             @Override
             public void onError(Throwable t) {
-
             }
-
             @Override
             public void onCompleted() {
                 System.out.println("Server sent a response");
                 latch.countDown();
-
-
             }
         });
 
@@ -164,27 +150,21 @@ public class VehicleClient {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        asyncStub.modelsForMakes(new Flux<>)
 
     }
     public void getModelByMakeAndYear(ManagedChannel channel) {
 
         CountDownLatch latch = new CountDownLatch(1);
         VehicleServiceGrpc.VehicleServiceStub asyncStub = VehicleServiceGrpc.newStub(channel);
-
-        StreamObserver<Vehicle.GetModelByMakeAndYearRequest> requestStreamObserver = asyncStub.getModelByMakeAndYear(new StreamObserver<Vehicle.GetModelByMakeAndYearResponse>() {
+        StreamObserver<Vehicle.GetModelByMakeRequest> requestStreamObserver = asyncStub.getModelByMake(new StreamObserver<Vehicle.GetModelByMakeResponse>() {
             @Override
-            public void onNext(Vehicle.GetModelByMakeAndYearResponse value) {
+            public void onNext(Vehicle.GetModelByMakeResponse value) {
                 System.out.println("Received value from server");
                 System.out.println(value.getModelsList());
-
             }
-
             @Override
             public void onError(Throwable t) {
-
             }
-
             @Override
             public void onCompleted() {
                 System.out.println("Server finished sending stuff");
@@ -193,42 +173,40 @@ public class VehicleClient {
         });
 
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("honda")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("tesla")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("ford")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("audi")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("hyundai")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("hyundai")
                         .build()
         );
         requestStreamObserver.onNext(
-                Vehicle.GetModelByMakeAndYearRequest.newBuilder()
+                Vehicle.GetModelByMakeRequest.newBuilder()
                         .setMake("kia")
                         .build()
         );
-
-
 
         requestStreamObserver.onCompleted();
         try {
@@ -236,9 +214,6 @@ public class VehicleClient {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
 }

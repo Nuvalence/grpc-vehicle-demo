@@ -26,11 +26,12 @@ public class GrpcVehicleDemoApplication {
 
 			return args -> {
 
+				System.out.println("Starting file read stream");
 				for (String year: dataYears) {
 
 					Path path = Path.of("src/main/resources/fuel data/"+year+"data.csv");
 
-					System.out.println("START STREAM");
+					System.out.println("Reading file from " + year);
 					Flux<String> vehicleFlux = Flux.using(
 							() -> Files.lines(path),
 							Flux::fromStream,
@@ -53,12 +54,3 @@ public class GrpcVehicleDemoApplication {
 			};
 	}
 }
-
-// sample
-//				Flux<Vehicle> vehicleFlux = Flux.just(v1,v2,v3)
-//						.flatMap(vehicle -> repository.save(vehicle))
-//						.flatMap(repository::save);//
-//				vehicleFlux
-//						.thenMany(repository.findAll())
-//						.subscribe(System.out::println);
-
