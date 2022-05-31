@@ -31,13 +31,13 @@ This REST API will leverage an external, free, API from the National Highway Tra
 ## REST API DESCRIPTION
 
 GET: /vehicle
-  - returns all the data that's been read into the repository (from 2019-2022)
+  - a unary endpoint that returns all the data that's been read into the repository (from 2019-2022)
 
 GET: /vehicle/{id}
-  - returns a specific vehicle detail by id
+  - a unary endpoint that returns a specific vehicle detail by id
 
 GET: /vehicle/details/{year}
-  - returns vehicle details for a given year but currently only has years 2019-2022 (inclusive)
+  - a unary endpoint that returns vehicle details for a given year but currently only has years 2019-2022 (inclusive)
 
 GET: /vehicle/allMakes
   - a unary endpoint (with no required input) that will return every car make found
