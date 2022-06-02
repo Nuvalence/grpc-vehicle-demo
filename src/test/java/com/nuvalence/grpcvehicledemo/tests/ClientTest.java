@@ -3,8 +3,9 @@ package com.nuvalence.grpcvehicledemo.tests;
 import com.nuvalence.grpcvehicledemo.client.VehicleClient;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ClientTest {
 
+//    @Autowired
+//    private WebTestClient webClient;
+
     @MockBean
     private VehicleClient vehicleClient;
 
@@ -49,6 +53,9 @@ public class ClientTest {
                                     "ROLLS ROYCE"))
                 );
 
+//        webClient.get().uri("/vehicle/allMakes")
+//                        .exchange()
+//                                .expectStatus().isOk();
         mockMvc
                 .perform(get("/vehicle/allMakes"))
                 .andExpect(status().isOk());

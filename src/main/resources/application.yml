@@ -5,3 +5,6 @@ grpc:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
+resources:
+  external_API_URL: "https://vpic.nhtsa.dot.gov/api/vehicles"
+  max_memory_size_in_bytes: 1000000

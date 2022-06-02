@@ -22,10 +22,10 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
     public WebClient webClient;
 
-    @Value("${external_API_URL}")
+    @Value("${resources.external_API_URL}")
     String url;
 
-    @Value("${max_memory_size_in_bytes}")
+    @Value("${resources.max_memory_size_in_bytes}")
     int maxSize;
 
     @Override
