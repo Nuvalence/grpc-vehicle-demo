@@ -1,13 +1,8 @@
 package com.nuvalence.grpcvehicledemo.tests;
 
 import com.nuvalence.grpcvehicledemo.client.VehicleClient;
-import org.mockito.InjectMocks;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.test.web.servlet.MockMvc;
 import org.junit.Test;
 import org.junit.runner.RunWith;

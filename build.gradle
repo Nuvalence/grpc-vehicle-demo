@@ -58,6 +58,10 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 }
 
+test {
+	useJUnitPlatform()
+}
+
 protobuf {
 	protoc {
 		artifact = "com.google.protobuf:protoc:3.19.2"
