@@ -53,7 +53,7 @@ public class VehicleClient {
         });
     }
 
-    public Flux<List<String>> getModelByMakeAndYear(List<String> makes) {
+    public Flux<List<String>> modelsByMake(List<String> makes) {
         // initialize request
         Flux<Vehicle.GetModelByMakeRequest> requestStream = Flux.fromStream(
                 makes.stream()

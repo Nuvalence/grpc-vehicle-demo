@@ -4,6 +4,8 @@ import com.proto.ReactorVehicleServiceGrpc;
 import com.proto.Vehicle;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.json.JSONArray;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,6 +22,12 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
     public WebClient webClient;
 
+    @Value("${external_API_URL}")
+    String url;
+
+    @Value("${max_memory_size_in_bytes}")
+    int maxSize;
+
     @Override
     public Mono<Vehicle.AllMakesResponse> allMakes(Mono<Vehicle.AllMakesRequest> request) {
 
@@ -28,8 +36,8 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
-                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
-                .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
+                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(maxSize)).build())
+                .baseUrl(url)
                 .build();
 
         var externalResponse = webClient
@@ -72,8 +80,8 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
-                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
-                .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
+                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(maxSize)).build())
+                .baseUrl(url)
                 .build();
 
         var externalResponse = webClient
@@ -119,8 +127,8 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
 
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
-                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
-                .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
+                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(maxSize)).build())
+                .baseUrl(url)
                 .build();
 
         return request
@@ -155,10 +163,11 @@ public class VehicleServiceImpl extends ReactorVehicleServiceGrpc.VehicleService
     @Override
     public Flux<Vehicle.GetModelByMakeResponse> getModelByMake(Flux<Vehicle.GetModelByMakeRequest> request) {
 
+
         this.webClient = WebClient.builder()
                 .exchangeStrategies(
-                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(1000000)).build())
-                .baseUrl("https://vpic.nhtsa.dot.gov/api/vehicles")
+                        ExchangeStrategies.builder().codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(maxSize)).build())
+                .baseUrl(url)
                 .build();
 
         return request.map(req -> {

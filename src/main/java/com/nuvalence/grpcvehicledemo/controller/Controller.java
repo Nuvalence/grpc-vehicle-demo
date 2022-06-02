@@ -60,7 +60,7 @@ public class Controller {
 
     @GetMapping(value = "/model", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<List<String>> getModelStream(@RequestParam(value = "makes") List<String> makes) {
-        return vehicleClient.getModelByMakeAndYear(makes);
+        return vehicleClient.modelsByMake(makes);
     }
 
 }
